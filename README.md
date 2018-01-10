@@ -281,13 +281,14 @@ Body:
 }
 ```
 
-* Appium will _not_ accept a request if it contains a standard capability prefixed with `appium:`. For example, this request will respond with a Bad Request error because `platformName` is a standard capability and should not be prefixed
+* Appium will _not_ accept a request if it contains a standard capability prefixed with `appium:`
 
 ```
 // BAD REQUEST
 Body: 
 {
   capabilities: {
+    // `platformName` is a standard capability and should not be prefixed
     alwaysMatch: {'appium:platformName': 'iOS', 'appium:deviceName': 'iPhone 6s', 'appium:automationName: 'XCUITest'},
     firstMatch: [{}]
   }
