@@ -128,25 +128,16 @@
     ],
   }
 }
-
-// bad 
-// one of the required caps is invalid ('BadAutomationName' is an invalid automation name)
-{
-  capabilities: {
-    alwaysMatch: {platformName: 'iOS', deviceName: 'iPhone 6s', automationName: 'BadAutomationName'},
-    firstMatch: [{}],
-  }
-}
 ```
 
 * The same capability can't be in `alwaysMatch` and `firstMatch`
 
-```
+```javascript
 // bad
 // the same capability appears in firstMatch _and_ alwaysMatch
 {
   capabilities: {
-    alwaysMatch: {platformName: 'iOS', deviceName: 'iPhone 6s', automationName: 'BadAutomationName'},
+    alwaysMatch: {platformName: 'iOS', deviceName: 'iPhone 6s'},
     firstMatch: [
       {platformName: 'Android'}
     ],
@@ -157,7 +148,7 @@
 // the same capability appears in firstMatch _and_ alwaysMatch, even if they have the same value
 {
   capabilities: {
-    alwaysMatch: {platformName: 'iOS', deviceName: 'iPhone 6s', automationName: 'BadAutomationName'},
+    alwaysMatch: {platformName: 'iOS', deviceName: 'iPhone 6s'},
     firstMatch: [
       {platformName: 'iOS'} // Doesn't matter that platformName is the same in both alwaysMatch and firstMatch
     ],
@@ -167,7 +158,7 @@
 
 * The capabilities must pass [validation rules](https://github.com/appium/appium-base-driver/blob/973a6d70bba853de26d95c2f1f7ad8b0e1dbaffb/lib/basedriver/desired-caps.js)
 
-```
+```javascript
 // bad
 // 'BadAutomationName' is not a valid automation name
 {
