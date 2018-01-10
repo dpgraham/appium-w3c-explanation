@@ -171,11 +171,22 @@
   }
 }
 
-// good
-// 'XCUITest' is a valid automation name
+// bad
+// 'newCommandTimeout' must be a number
 {
   capabilities: {
-    alwaysMatch: {platformName: 'iOS', deviceName: 'iPhone 6s', automationName: 'XCUITest'},
+    alwaysMatch: {platformName: 'iOS', deviceName: 'iPhone 6s', newCommandTimeout: 'Infinity'},
+    firstMatch: [
+      {platformName: 'Android'},
+      {}, // Doesn't matter that this line DOES pass. It instantly fails upon finding a matching capability
+    ],
+  }
+}
+
+// good
+{
+  capabilities: {
+    alwaysMatch: {platformName: 'iOS', deviceName: 'iPhone 6s', automationName: 'XCUITest', newCommandTimeout: 100},
     firstMatch: [{}],
   }
 }
