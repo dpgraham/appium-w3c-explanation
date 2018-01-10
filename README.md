@@ -64,7 +64,7 @@
 // 'firstMatch' must be a list of JSON objects
 {
   capabilities: {
-    alwaysMatch: 'foo',
+    alwaysMatch: {},
     firstMatch: ['hello', 'world'],
   }
 }
@@ -73,7 +73,7 @@
 // 'firstMatch' must be a JSON array
 {
   capabilities: {
-    alwaysMatch: 'foo',
+    alwaysMatch: {},
     firstMatch: {'hello': 'world'}, // This will NOT be translated into a singleton array
   }
 }
