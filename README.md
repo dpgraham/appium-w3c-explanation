@@ -51,6 +51,32 @@
     firstMatch: [{...}, ...],
   }
 }
+
+// Bad
+// 'alwaysMatch' must be a JSON object
+{
+  capabilities: {
+    alwaysMatch: 'foo'
+  }
+}
+
+// Bad
+// 'firstMatch' must be a list of JSON objects
+{
+  capabilities: {
+    alwaysMatch: 'foo',
+    firstMatch: ['hello', 'world'],
+  }
+}
+
+// Bad
+// 'firstMatch' must be a JSON array
+{
+  capabilities: {
+    alwaysMatch: 'foo',
+    firstMatch: {'hello': 'world'}, // This will NOT be translated into a singleton array
+  }
+}
 ```
 
 ### Capabilities Validation
